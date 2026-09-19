@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>젤다의 성장일기</title>
+<meta name="description" content="릴리화이트 크레스티드 게코 젤다의 주차별 성장 기록.">
+<meta name="theme-color" content="#FCF6E4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="젤다의 성장일기">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Gaegu:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#FCF6E4; --paper2:#F6EDD6; --card:#FFFCF2; --sunk:#F2E8CF;
+  --ink:#4B3A27; --muted:#8B7A60; --faint:#AC9D83;
+  --line:#E3D5B4; --line-soft:#EFE4C8;
+  --moss:#6E9450; --moss-soft:#E4EED7; --moss-ink:#4E6F35;
+  --clay:#DE8A3B; --clay-soft:#FBE8CF;
+  --sky:#5B8FC7; --sky-soft:#DDE8F5;
+  --berry:#C9524E; --berry-soft:#F8DFDC;
+  --gold:#C69A2C; --gold-soft:#F8EDCB;
+  --shadow:0 2px 0 rgba(75,58,39,.05), 0 10px 26px -14px rgba(75,58,39,.35);
+  --r:16px;
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1610; --paper2:#211C14; --card:#241E15; --sunk:#2E2719;
+    --ink:#F0E6D2; --muted:#B3A388; --faint:#8A7B62;
+    --line:#3B3223; --line-soft:#332C1F;
+    --moss:#93BE72; --moss-soft:#26301C; --moss-ink:#A9CE8B;
+    --clay:#EDA45F; --clay-soft:#382714;
+    --sky:#7FB0E2; --sky-soft:#1B2836;
+    --berry:#E0746F; --berry-soft:#361D1C;
+    --gold:#DFBA58; --gold-soft:#332A14;
+    --shadow:0 2px 0 rgba(0,0,0,.2), 0 12px 30px -16px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1A1610; --paper2:#211C14; --card:#241E15; --sunk:#2E2719;
+  --ink:#F0E6D2; --muted:#B3A388; --faint:#8A7B62;
+  --line:#3B3223; --line-soft:#332C1F;
+  --moss:#93BE72; --moss-soft:#26301C; --moss-ink:#A9CE8B;
+  --clay:#EDA45F; --clay-soft:#382714;
+  --sky:#7FB0E2; --sky-soft:#1B2836;
+  --berry:#E0746F; --berry-soft:#361D1C;
+  --gold:#DFBA58; --gold-soft:#332A14;
+  --shadow:0 2px 0 rgba(0,0,0,.2), 0 12px 30px -16px rgba(0,0,0,.8);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; color:var(--ink);
+  background:
+    radial-gradient(900px 420px at 88% -6%, var(--paper2), transparent 60%),
+    radial-gradient(700px 380px at 4% 102%, var(--paper2), transparent 62%),
+    var(--paper);
+  background-attachment:fixed;
+  font-family:'Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+  font-size:15px; line-height:1.62;
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3,.jua{font-family:'Jua','Gowun Dodum',sans-serif; font-weight:400; letter-spacing:.01em}
+button,input,textarea,select{font:inherit; color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2.5px solid var(--moss); outline-offset:2px; border-radius:8px}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
+
+.wrap{max-width:1140px; margin:0 auto; padding-inline:16px; padding-block:0 60px; position:relative}
+
+/* ── 여백 장식 ────────────────────────────── */
+.doodles{position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0}
+.doodles svg{position:absolute; color:var(--moss); opacity:.2}
+.doodles img{position:absolute; opacity:.2}
+.doodles .d1{top:78px; left:-44px; width:96px; transform:rotate(-16deg)}
+.doodles .d2{top:430px; right:-40px; width:84px; transform:rotate(20deg) scaleX(-1)}
+.doodles .d3{top:760px; left:-26px; width:54px; color:var(--gold); transform:rotate(8deg)}
+.doodles .d4{top:250px; right:-22px; width:48px; color:var(--moss)}
+.doodles .d5{top:620px; right:-16px; width:42px; color:var(--berry); opacity:.16}
+.doodles .d6{top:1090px; left:-34px; width:80px; transform:rotate(-24deg) scaleX(-1)}
+@media (max-width:1180px){.doodles{display:none}}
+
+/* ── 머리말 ───────────────────────────────── */
+.masthead{position:relative; z-index:1; padding-block:24px 0}
+.eyebrow{font-family:'Gaegu',cursive; font-size:17px; color:var(--moss-ink); letter-spacing:.06em; margin:0 0 -2px}
+.mast-top{display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; gap:16px 26px}
+h1{font-size:clamp(30px,8vw,46px); line-height:1.16; margin:0; text-wrap:balance}
+h1 em{font-style:normal; color:var(--moss)}
+.subline{margin:6px 0 0; font-size:13.5px; color:var(--muted)}
+.subline b{color:var(--ink); font-weight:400}
+.agechip{margin-top:9px; display:flex; flex-wrap:wrap; gap:8px}
+.agechip span{background:var(--card); border:1.5px solid var(--line); border-radius:99px; padding:3px 12px; font-size:12.5px; color:var(--muted)}
+.agechip b{color:var(--moss-ink); font-family:'Jua',sans-serif; font-weight:400}
+
+.mascot{display:flex; align-items:center; gap:10px; background:var(--card); border:2px solid var(--moss); border-radius:18px; padding:10px 16px 10px 10px; box-shadow:var(--shadow); max-width:300px}
+.mascot > img{width:80px; flex:none}
+.mascot .say b{display:block; font-family:'Jua',sans-serif; font-size:16px; color:var(--moss-ink)}
+.mascot .say span{font-size:12.5px; color:var(--muted); line-height:1.45; display:block}
+
+.legend-top{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:16px; font-size:12.5px; color:var(--muted); align-items:center}
+.legend-top i{width:16px; height:4px; border-radius:99px; display:inline-block; margin-right:6px; vertical-align:middle}
+.legend-top i.m{background:var(--moss)} .legend-top i.f{background:var(--clay)} .legend-top i.c{background:var(--sky)}
+
+/* ── 요약 ─────────────────────────────────── */
+.strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:10px; margin-top:16px; position:relative; z-index:1}
+.stat{background:var(--card); border:2px solid var(--line); border-radius:var(--r); padding:11px 14px}
+.stat .k{font-size:12px; color:var(--faint)}
+.stat .v{font-family:'Jua',sans-serif; font-size:24px; line-height:1.25; margin-top:1px; font-variant-numeric:tabular-nums}
+.stat .v small{font-size:13px; color:var(--muted); margin-left:1px}
+.stat .sub{font-size:12px; color:var(--muted)}
+.spark{display:block; width:100%; height:38px; margin-top:2px}
+
+.goal{margin-top:10px; background:var(--card); border:2px solid var(--line); border-radius:var(--r); padding:12px 15px; position:relative; z-index:1}
+.goal-head{display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:13px; color:var(--muted)}
+.goal-head b{color:var(--ink); font-family:'Jua',sans-serif; font-weight:400}
+.bar{height:11px; border-radius:99px; background:var(--sunk); margin-top:8px; overflow:hidden; border:1.5px solid var(--line)}
+.bar i{display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,var(--moss),var(--gold))}
+
+.milestone{margin-top:12px; display:flex; gap:12px; align-items:center; position:relative; z-index:1; background:var(--gold-soft); border:2px solid var(--gold); border-radius:var(--r); padding:12px 15px}
+.milestone > img{width:62px; flex:none}
+.milestone p{margin:0; font-size:13.5px; color:var(--muted)}
+.milestone p b{font-family:'Jua',sans-serif; font-size:17px; color:var(--ink); display:block; margin-bottom:1px}
+.milestone .close{margin-left:auto; align-self:flex-start; background:none; border:0; color:var(--muted); font-size:20px; padding:0 4px; line-height:1}
+
+/* ── 도구 막대 ────────────────────────────── */
+.toolbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  padding-block:10px; margin-top:20px;
+  background:var(--paper); border-bottom:2px dashed var(--line);
+}
+.tabs{display:inline-flex; background:var(--sunk); border-radius:12px; padding:3px; border:1.5px solid var(--line)}
+.tabs button{border:0; background:none; padding:6px 16px; border-radius:9px; font-family:'Jua',sans-serif; font-size:15px; color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--card); color:var(--moss-ink); box-shadow:0 1px 3px rgba(75,58,39,.12)}
+.btn{border:2px solid var(--line); background:var(--card); color:var(--ink); padding:6px 14px; border-radius:11px; font-family:'Jua',sans-serif; font-size:14.5px}
+.btn:hover{border-color:var(--moss)}
+.btn.primary{background:var(--moss); border-color:var(--moss); color:#fff}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+.btn.icon{padding:6px 11px}
+.grow{flex:1 1 auto}
+
+/* ── 일기 ─────────────────────────────────── */
+main{position:relative; z-index:1}
+:root{--cols:118px minmax(0,1.12fr) minmax(0,1.24fr) minmax(0,1.1fr)}
+.sheetlabel{display:flex; align-items:center; gap:10px; margin:26px 0 9px; font-family:'Jua',sans-serif; font-size:15px; color:var(--moss-ink)}
+.sheetlabel svg{width:26px; color:var(--moss); opacity:.8; flex:none}
+.sheetlabel::after{content:""; flex:1; height:0; border-top:2px dashed var(--line)}
+.sheetlabel .pill{font-family:'Gowun Dodum',sans-serif; font-size:12px; color:var(--moss-ink); background:var(--moss-soft); border-radius:99px; padding:2px 11px}
+.sheetlabel .pill.full{background:var(--gold-soft); color:var(--gold)}
+
+.thead{display:grid; grid-template-columns:var(--cols); background:var(--sunk); border:2px solid var(--line); border-bottom:0; border-radius:var(--r) var(--r) 0 0; overflow:hidden}
+.thead div{padding:7px 13px; font-family:'Jua',sans-serif; font-size:13px; color:var(--muted); border-left:1.5px solid var(--line)}
+.thead div:first-child{border-left:0}
+
+.sheetgroup{border:2px solid var(--line); border-top:0; border-radius:0 0 var(--r) var(--r); overflow:hidden; background:var(--card); box-shadow:var(--shadow)}
+.row{display:grid; grid-template-columns:var(--cols); border-top:1.5px dashed var(--line); cursor:pointer; background:var(--card); text-align:left; width:100%; border-left:0; border-right:0; border-bottom:0; padding:0; color:inherit; font:inherit}
+.sheetgroup .row:first-child{border-top:0}
+.row:hover{background:var(--sunk)}
+.cell{padding:13px; border-left:1.5px dashed var(--line); min-width:0}
+.cell:first-child{border-left:0}
+.clabel{display:none}
+
+.wk{font-family:'Jua',sans-serif; font-size:16px; line-height:1.3}
+.wk .rng{display:block; font-family:'Gowun Dodum',sans-serif; font-size:12px; color:var(--faint); margin-top:3px; font-variant-numeric:tabular-nums}
+.wk .no{display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; padding:0 6px; border-radius:99px; background:var(--moss-soft); color:var(--moss-ink); font-size:12.5px; margin-right:6px; vertical-align:2px}
+
+.shot{width:100%; aspect-ratio:4/3; border-radius:12px; background:var(--sunk); object-fit:cover; display:block; border:2px solid var(--line-soft)}
+.shot.empty{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--faint); font-size:12px}
+.shot.empty svg{width:34px; opacity:.65}
+.meta2{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-top:8px; font-variant-numeric:tabular-nums}
+.meta2 .d{font-size:12.5px; color:var(--muted)}
+.meta2 .g{font-family:'Jua',sans-serif; font-size:21px}
+.meta2 .g small{font-size:13px; color:var(--muted)}
+.meta2 .g.none{font-family:'Gowun Dodum',sans-serif; font-size:13px; color:var(--faint)}
+.delta{font-family:'Gowun Dodum',sans-serif; font-size:12px; margin-left:5px}
+.delta.up{color:var(--moss)} .delta.dn{color:var(--berry)}
+
+.track{margin-bottom:10px}
+.track:last-child{margin-bottom:0}
+.track .tk{display:flex; align-items:center; gap:6px; font-family:'Jua',sans-serif; font-size:13px; margin-bottom:5px}
+.track .tk i{width:16px; height:4px; border-radius:99px; display:inline-block}
+.track.feed .tk{color:var(--clay)} .track.feed .tk i{background:var(--clay)}
+.track.clean .tk{color:var(--sky)} .track.clean .tk i{background:var(--sky)}
+.track .tk em{font-style:normal; font-family:'Gowun Dodum',sans-serif; color:var(--faint); font-size:12px; margin-left:auto}
+.days{display:grid; grid-template-columns:repeat(7,1fr); gap:4px}
+.day{aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:11.5px; border-radius:8px; background:var(--sunk); color:var(--faint); border:1.5px solid transparent; min-width:0}
+.feed .day.on{background:var(--clay); border-color:var(--clay); color:#fff}
+.clean .day.on{background:var(--sky); border-color:var(--sky); color:#fff}
+
+.memo{font-size:13.5px; white-space:pre-wrap; overflow-wrap:anywhere}
+.memo.empty{color:var(--faint)}
+.tagrow{display:flex; flex-wrap:wrap; gap:5px; margin-top:9px}
+.tag{font-size:11.5px; padding:2px 10px; border-radius:99px; background:var(--gold-soft); color:var(--gold); border:1.5px solid var(--gold)}
+
+.empty-state{border:2.5px dashed var(--line); border-radius:22px; padding:30px 20px 26px; text-align:center; color:var(--muted); background:var(--card)}
+.empty-state img{width:150px; max-width:60%}
+.empty-state p{margin:6px 0 16px; font-size:14px}
+
+/* ── 달력 ─────────────────────────────────── */
+.calhead{display:flex; align-items:center; justify-content:center; gap:14px; margin:20px 0 12px}
+.calhead h2{font-size:22px; margin:0; font-variant-numeric:tabular-nums}
+.nav{width:36px; height:36px; border-radius:50%; border:2px solid var(--line); background:var(--card); font-size:17px; line-height:1; display:grid; place-items:center; color:var(--muted)}
+.cal{background:var(--card); border:2px solid var(--line); border-radius:22px; padding:12px; box-shadow:var(--shadow); position:relative}
+.cal .peek{position:absolute; top:-52px; right:18px; width:110px; pointer-events:none; filter:drop-shadow(0 4px 6px rgba(75,58,39,.18))}
+.dow,.grid7{display:grid; grid-template-columns:repeat(7,1fr); gap:5px}
+.dow div{text-align:center; font-family:'Jua',sans-serif; font-size:13px; color:var(--muted); padding-bottom:6px}
+.dow div:nth-child(6){color:var(--sky)} .dow div:nth-child(7){color:var(--berry)}
+.cday{aspect-ratio:1; border:1.5px solid var(--line-soft); border-radius:11px; background:var(--card); display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:5px 2px 3px; gap:3px; font-variant-numeric:tabular-nums; min-width:0}
+.cday.pad{border-color:transparent; background:none}
+.cday .n{font-size:13px; line-height:1; color:var(--muted)}
+.cday.has{cursor:pointer; background:var(--sunk)}
+.cday.rec{background:var(--moss-soft); border-color:var(--moss)}
+.cday.rec .n{color:var(--moss-ink); font-family:'Jua',sans-serif}
+.cday.today{box-shadow:inset 0 0 0 2.5px var(--berry)}
+.cday .marks{display:flex; gap:3px; height:7px}
+.cday .marks i{width:7px; height:7px; border-radius:50%; display:block}
+.cday .marks i.f{background:var(--clay)} .cday .marks i.c{background:var(--sky)}
+.cday .w{font-family:'Jua',sans-serif; font-size:10px; color:var(--moss-ink); line-height:1}
+.legend{display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px; font-size:12.5px; color:var(--muted)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:13px; height:13px; border-radius:5px; display:inline-block}
+.legend i.rec{background:var(--moss-soft); border:1.5px solid var(--moss)}
+.legend i.f{background:var(--clay); border-radius:50%; width:9px; height:9px}
+.legend i.c{background:var(--sky); border-radius:50%; width:9px; height:9px}
+.legend i.td{background:none; border:2.5px solid var(--berry)}
+
+/* ── 돌보는 법 ────────────────────────────── */
+.care{margin-top:34px; position:relative; z-index:1; display:flex; gap:18px; flex-wrap:wrap; background:var(--card); border:2px solid var(--line); border-radius:22px; padding:18px 20px}
+.care-title{flex:0 0 130px; display:flex; flex-direction:column; align-items:center; gap:4px; text-align:center}
+.care-title img{width:94px}
+.care-title b{font-family:'Jua',sans-serif; font-size:17px; color:var(--moss-ink); line-height:1.25}
+.care ul{margin:0; padding-left:18px; flex:1 1 300px; font-size:13px; color:var(--muted); display:flex; flex-direction:column; gap:6px}
+.care ul b{color:var(--ink); font-weight:400}
+.care-foot{margin-top:12px; text-align:center; font-size:12px; color:var(--faint); border-top:2px dashed var(--line); padding-top:12px}
+
+/* ── 창 ───────────────────────────────────── */
+dialog{border:0; padding:0; background:var(--card); color:var(--ink); border-radius:22px; width:min(560px,calc(100vw - 24px)); max-height:88vh; box-shadow:0 26px 70px -20px rgba(40,30,18,.55)}
+dialog::backdrop{background:rgba(48,38,24,.5)}
+.dlg{display:flex; flex-direction:column; max-height:88vh}
+.dlg-head{display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:2px dashed var(--line)}
+.dlg-head img{width:40px; flex:none}
+.dlg-head h2{font-size:20px; margin:0; flex:1; min-width:0}
+.dlg-body{padding:16px 18px; overflow:auto; display:flex; flex-direction:column; gap:15px}
+.dlg-foot{display:flex; gap:9px; padding:13px 18px; border-top:2px dashed var(--line)}
+.x{width:34px; height:34px; border-radius:50%; border:2px solid var(--line); background:var(--card); font-size:17px; line-height:1; color:var(--muted)}
+
+.field{display:flex; flex-direction:column; gap:6px}
+.field > label{font-family:'Jua',sans-serif; font-size:14px; color:var(--moss-ink)}
+.inp{border:2px solid var(--line); background:var(--paper); border-radius:12px; padding:9px 12px; width:100%; font-variant-numeric:tabular-nums}
+.inp:focus{border-color:var(--moss); outline:none}
+textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.unit{position:relative}
+.unit .u{position:absolute; right:13px; top:50%; transform:translateY(-50%); color:var(--faint); font-size:13px; pointer-events:none}
+.unit .inp{padding-right:32px; font-family:'Jua',sans-serif; font-size:17px}
+
+.dropzone{position:relative; border:2.5px dashed var(--line); border-radius:16px; overflow:hidden; background:var(--sunk); aspect-ratio:4/3; display:grid; place-items:center}
+.dropzone img{width:100%; height:100%; object-fit:cover; display:block}
+.dropzone .ph{text-align:center; color:var(--muted); font-size:12.5px; padding:16px}
+.dropzone .ph svg{width:62px; color:var(--moss); opacity:.8; display:block; margin:0 auto 4px}
+.dropzone .ph b{display:block; font-family:'Jua',sans-serif; font-size:15px; color:var(--ink); margin-bottom:2px}
+.dropzone input[type=file]{position:absolute; inset:0; opacity:0; cursor:pointer}
+.dropzone .rm{position:absolute; top:8px; right:8px; z-index:2; border-radius:9px; padding:4px 10px; font-size:12px; background:rgba(45,34,20,.7); color:#fff; border:0}
+.dropzone.busy::after{content:"넣는 중…"; position:absolute; inset:0; display:grid; place-items:center; background:rgba(45,34,20,.5); color:#fff; font-size:13px}
+
+.weekdays{display:grid; grid-template-columns:repeat(7,1fr); gap:5px}
+.wd{position:relative}
+.wd input{position:absolute; opacity:0; inset:0; cursor:pointer}
+.wd span{display:flex; aspect-ratio:1; align-items:center; justify-content:center; border-radius:11px; background:var(--sunk); border:2px solid var(--line-soft); font-size:13px; color:var(--muted)}
+.wd input:focus-visible + span{outline:2.5px solid var(--moss); outline-offset:2px}
+.wd.f input:checked + span{background:var(--clay); border-color:var(--clay); color:#fff}
+.wd.c input:checked + span{background:var(--sky); border-color:var(--sky); color:#fff}
+.hint{font-size:12px; color:var(--faint); margin:0}
+.danger{border-color:var(--berry); color:var(--berry)}
+
+.zoom{background:var(--sunk); border-radius:16px; overflow:hidden; border:2px solid var(--line-soft)}
+.zoom img{width:100%; display:block}
+.viewgrid{display:flex; flex-direction:column; gap:12px}
+.vrow{display:flex; gap:12px; align-items:baseline; font-size:14px; border-bottom:1.5px dashed var(--line); padding-bottom:11px}
+.vrow:last-child{border-bottom:0; padding-bottom:0}
+.vrow .k{width:62px; flex:none; font-family:'Jua',sans-serif; font-size:13.5px; color:var(--moss-ink)}
+.vrow .v{flex:1; min-width:0; font-variant-numeric:tabular-nums}
+.vrow .v .big{font-family:'Jua',sans-serif; font-size:19px}
+
+.bkbox{background:var(--sunk); border:2px solid var(--line); border-radius:14px; padding:13px 15px; font-size:13px; color:var(--muted)}
+.bkbox b{display:block; font-family:'Jua',sans-serif; font-size:14.5px; color:var(--ink); margin-bottom:3px}
+.bkrow{display:flex; gap:9px; flex-wrap:wrap}
+.bkrow .btn{flex:1 1 140px}
+.warn{background:var(--berry-soft); border-color:var(--berry); color:var(--ink)}
+
+.toast{position:fixed; left:50%; transform:translateX(-50%); bottom:calc(20px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--paper); padding:10px 18px; border-radius:99px; font-size:13.5px; z-index:60; box-shadow:0 12px 30px -10px rgba(0,0,0,.5); max-width:calc(100vw - 32px)}
+
+@media (max-width:760px){
+  .thead{display:none}
+  .sheetgroup{border:0; border-radius:0; overflow:visible; background:transparent; box-shadow:none}
+  .row{grid-template-columns:1fr; border:2px solid var(--line); border-radius:18px; background:var(--card); margin-bottom:11px; overflow:hidden; box-shadow:var(--shadow)}
+  .cell{border-left:0; border-top:1.5px dashed var(--line)}
+  .cell:first-child{border-top:0; background:var(--sunk); padding:10px 13px}
+  .clabel{display:block; font-family:'Jua',sans-serif; font-size:13px; color:var(--moss-ink); margin-bottom:7px}
+  .wk{display:flex; align-items:baseline; gap:8px}
+  .wk .rng{margin-top:0}
+  .shot{aspect-ratio:16/10}
+  .cday .w{display:none}
+  .mascot{max-width:none; width:100%}
+  .cal .peek{width:84px; right:14px; top:-40px}
+  .care-title{flex:1 1 100%}
+}
+
+/* ── A4 인쇄면 (화면 밖) ──────────────────── */
+#stage{position:fixed; left:-12000px; top:0; width:794px}
+.a4{width:794px; min-height:1123px; background:#FCF6E4; color:#4B3A27; padding:40px 38px 30px; font-family:'Gowun Dodum','Malgun Gothic',sans-serif; display:flex; flex-direction:column; position:relative}
+.a4-frame{position:absolute; inset:16px; border:2.5px dashed #E3D5B4; border-radius:26px}
+.a4-head{display:flex; align-items:flex-end; justify-content:space-between; gap:20px; border-bottom:3px solid #6E9450; padding-bottom:9px; position:relative}
+.a4-head .eb{font-family:'Gaegu',cursive; font-size:15px; color:#6E9450; margin:0 0 -4px}
+.a4-head h1{font-family:'Jua',sans-serif; font-size:31px; margin:0; color:#4B3A27}
+.a4-head .m{font-size:10.5px; color:#8B7A60; text-align:right; line-height:1.65}
+.a4-head .gk{position:absolute; right:232px; bottom:-4px; width:62px}
+.a4-lg{display:flex; gap:16px; font-size:10px; color:#8B7A60; margin-top:8px}
+.a4-lg i{width:14px; height:4px; border-radius:99px; display:inline-block; margin-right:5px; vertical-align:middle}
+.a4-rows{flex:1; display:flex; flex-direction:column; border:2px solid #E3D5B4; border-top:0; border-radius:0 0 14px 14px; overflow:hidden; background:#FFFCF2}
+.a4-th{display:flex; background:#F2E8CF; border:2px solid #E3D5B4; border-bottom:0; border-radius:14px 14px 0 0; margin-top:10px; overflow:hidden}
+.a4-th div{padding:5px 10px; font-family:'Jua',sans-serif; font-size:11px; color:#8B7A60; border-left:1.5px solid #E3D5B4}
+.a4-th div:first-child{border-left:0}
+.a4-row{display:flex; border-top:1.5px dashed #E3D5B4; min-height:214px}
+.a4-row:first-child{border-top:0}
+.a4-c{padding:10px; border-left:1.5px dashed #E3D5B4; overflow:hidden}
+.a4-c:first-child{border-left:0}
+.c1{width:102px; flex:none} .c2{width:212px; flex:none} .c3{width:210px; flex:none} .c4{flex:1}
+.a4 .wk{font-family:'Jua',sans-serif; font-size:14px}
+.a4 .wk .rng{font-family:'Gowun Dodum',sans-serif; font-size:9.5px; color:#AC9D83; display:block; margin-top:3px}
+.a4 .shot{width:100%; height:126px; object-fit:cover; border-radius:9px; border:2px solid #EFE4C8; background:#F2E8CF; display:block}
+.a4 .noshot{width:100%; height:126px; border-radius:9px; border:2px dashed #E3D5B4; background:#FCF6E4}
+.a4 .meta2{display:flex; justify-content:space-between; align-items:baseline; margin-top:7px}
+.a4 .meta2 .d{font-size:10.5px; color:#8B7A60}
+.a4 .meta2 .g{font-family:'Jua',sans-serif; font-size:18px} .a4 .meta2 .g small{font-size:10.5px; color:#8B7A60}
+.a4 .track{margin-bottom:9px}
+.a4 .tk{font-family:'Jua',sans-serif; font-size:10.5px; margin-bottom:4px}
+.a4 .track.feed .tk{color:#DE8A3B} .a4 .track.clean .tk{color:#5B8FC7}
+.a4 .days{display:flex; gap:4px}
+.a4 .day{width:24px; height:24px; border-radius:7px; background:#F2E8CF; color:#AC9D83; font-size:9.5px; display:flex; align-items:center; justify-content:center; border:1.5px solid #EFE4C8}
+.a4 .feed .day.on{background:#DE8A3B; border-color:#DE8A3B; color:#fff}
+.a4 .clean .day.on{background:#5B8FC7; border-color:#5B8FC7; color:#fff}
+.a4 .memo{font-size:11px; white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.65}
+.a4-foot{display:flex; justify-content:space-between; align-items:center; font-size:9.5px; color:#AC9D83; padding-top:9px; margin-top:10px; border-top:2px dashed #E3D5B4}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="leaf" viewBox="0 0 60 60">
+  <path d="M54 6C22 6 7 23 7 40c0 6 2 11 6 13 4-21 16-33 32-38-14 9-24 21-27 37 15 2 36-7 36-46z" fill="currentColor"/>
+</symbol>
+<symbol id="paw" viewBox="0 0 60 60">
+  <g fill="currentColor">
+    <ellipse cx="30" cy="43" rx="12.5" ry="10"/>
+    <ellipse cx="11" cy="31" rx="5" ry="7.5" transform="rotate(-38 11 31)"/>
+    <ellipse cx="20" cy="20" rx="5" ry="7.5" transform="rotate(-19 20 20)"/>
+    <ellipse cx="31" cy="15" rx="5" ry="7.5"/>
+    <ellipse cx="42" cy="20" rx="5" ry="7.5" transform="rotate(19 42 20)"/>
+    <ellipse cx="51" cy="31" rx="5" ry="7.5" transform="rotate(38 51 31)"/>
+  </g>
+</symbol>
+<symbol id="camera" viewBox="0 0 64 64">
+  <g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M6 20h11l5-7h20l5 7h11a3 3 0 013 3v27a3 3 0 01-3 3H6a3 3 0 01-3-3V23a3 3 0 013-3z"/>
+    <circle cx="32" cy="36" r="12"/>
+  </g>
+</symbol>
+</defs></svg>
+
+<div class="wrap">
+  <div class="doodles" aria-hidden="true">
+    <img class="d1" src="./zelda-sticker.png" alt="">
+    <img class="d2" src="./zelda-sticker.png" alt="">
+    <svg class="d3"><use href="#leaf"/></svg>
+    <svg class="d4"><use href="#leaf"/></svg>
+    <svg class="d5"><use href="#paw"/></svg>
+    <img class="d6" src="./zelda-sticker.png" alt="">
+  </div>
+
+  <header class="masthead">
+    <div class="mast-top">
+      <div>
+        <p class="eyebrow">천천히, 그러나 매일</p>
+        <h1>젤다의 <em>성장일기</em></h1>
+        <p class="subline">릴리화이트 크레스티드 게코 · 출생 <b>26. 7. 5.</b> · 데려온 날 <b>26. 9. 14.</b></p>
+        <div class="agechip" id="agechip"></div>
+      </div>
+      <div class="mascot">
+        <img src="./zelda-sticker.png" alt="젤다 캐릭터">
+        <div class="say">
+          <b>젤다</b>
+          <span>오늘도 잘 먹었어요?<br>사진 한 장, 몸무게 한 번!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend-top">
+      <span><i class="m"></i>몸무게 기록</span>
+      <span><i class="f"></i>피딩</span>
+      <span><i class="c"></i>청소</span>
+      <span>· 한 줄이 한 주예요. 4주가 모이면 A4 한 장이 됩니다.</span>
+    </div>
+
+    <div class="strip">
+      <div class="stat"><div class="k">최근 몸무게</div><div class="v" id="s-weight">—</div><div class="sub" id="s-weight-sub">기록 없음</div></div>
+      <div class="stat"><div class="k">기록한 주</div><div class="v" id="s-weeks">0<small>주</small></div><div class="sub" id="s-weeks-sub">첫 주를 기록해 보세요</div></div>
+      <div class="stat"><div class="k">몸무게 흐름</div><svg class="spark" id="spark" viewBox="0 0 220 44" preserveAspectRatio="none" aria-hidden="true"></svg><div class="sub" id="s-spark-sub">2주 이상 기록하면 그려져요</div></div>
+    </div>
+
+    <div class="goal" id="goal" hidden>
+      <div class="goal-head"><span>아성체(15g)까지</span><b id="goal-txt"></b></div>
+      <div class="bar"><i id="goal-bar" style="width:0%"></i></div>
+    </div>
+
+    <div class="milestone" id="milestone" hidden>
+      <img src="./zelda-sticker.png" alt="">
+      <p><b>아성체로 성장하였습니다. 집을 이사합시다!</b><span id="milestone-sub"></span></p>
+      <button class="close" id="milestone-x" aria-label="닫기">×</button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="tabs" role="tablist">
+      <button id="tab-diary" role="tab" aria-selected="true" aria-controls="view-diary">일기</button>
+      <button id="tab-cal" role="tab" aria-selected="false" aria-controls="view-cal">달력</button>
+    </div>
+    <span class="grow"></span>
+    <button class="btn icon" id="btn-backup" title="백업">백업</button>
+    <button class="btn" id="btn-pdf">PDF</button>
+    <button class="btn primary" id="btn-new">＋ 기록</button>
+  </div>
+
+  <main id="view-diary" role="tabpanel" aria-labelledby="tab-diary">
+    <div id="diary"></div>
+  </main>
+
+  <main id="view-cal" role="tabpanel" aria-labelledby="tab-cal" hidden>
+    <div class="calhead">
+      <button class="nav" id="cal-prev" aria-label="이전 달">‹</button>
+      <h2 id="cal-title"></h2>
+      <button class="nav" id="cal-next" aria-label="다음 달">›</button>
+    </div>
+    <div class="cal">
+      <img class="peek" src="./zelda-head.png" alt="">
+      <div class="dow"><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div>토</div><div>일</div></div>
+      <div class="grid7" id="cal-grid"></div>
+    </div>
+    <div class="legend">
+      <span><i class="rec"></i>몸무게 잰 날</span>
+      <span><i class="f"></i>피딩</span>
+      <span><i class="c"></i>청소</span>
+      <span><i class="td"></i>오늘</span>
+      <span>· 날짜를 누르면 그 주 일기가 열려요</span>
+    </div>
+  </main>
+
+  <section class="care">
+    <div class="care-title">
+      <img src="./zelda-sticker.png" alt="">
+      <b>젤다<br>돌보는 법</b>
+    </div>
+    <ul>
+      <li><b>온도 22~26℃, 습도 60~80%</b> — 저녁마다 분무해서 습도를 올리고, 아침에는 벽면이 마르도록 둡니다.</li>
+      <li><b>CGD(크레스티드 게코 전용 사료)</b>를 개서 이틀에 한 번 새로 갈아 주고, 남은 것은 치웁니다.</li>
+      <li><b>몸무게는 주 1회, 같은 요일 같은 시간에</b> — 먹기 전에 재야 변화가 제대로 보입니다.</li>
+      <li><b>탈피 전후</b>에는 잠깐 안 먹을 수 있어요. 메모에 남겨 두면 다음에 당황하지 않습니다.</li>
+      <li><b>15g을 넘으면 아성체</b> — 더 넓은 사육장으로 옮겨 줄 때입니다.</li>
+    </ul>
+    <p class="care-foot">일반적인 크레스티드 게코 관리 기준을 적어 둔 것이니, 젤다에게 맞게 고쳐 쓰세요.</p>
+  </section>
+</div>
+
+<dialog id="dlg"><form method="dialog" class="dlg">
+  <div class="dlg-head">
+    <img src="./zelda-head.png" alt="">
+    <h2 id="dlg-title">기록</h2>
+    <button class="x" value="cancel" aria-label="닫기">×</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+  <div class="dlg-foot" id="dlg-foot"></div>
+</form></dialog>
+
+<dialog id="bk"><form method="dialog" class="dlg">
+  <div class="dlg-head">
+    <img src="./zelda-head.png" alt="">
+    <h2>백업</h2>
+    <button class="x" value="cancel" aria-label="닫기">×</button>
+  </div>
+  <div class="dlg-body">
+    <div class="bkbox">
+      <b>이 일기는 이 폰 안에 저장돼요</b>
+      서버에 올라가지 않습니다. 브라우저 기록을 지우거나 폰을 바꾸면 사라지니,
+      가끔 백업 파일을 내보내서 사진첩·드라이브·메일 등 안전한 곳에 두세요.
+    </div>
+    <div class="bkbox" id="bk-stat"></div>
+    <div class="field">
+      <label>백업 파일 만들기</label>
+      <div class="bkrow">
+        <button class="btn primary" type="button" id="bk-out">내보내기 (.json)</button>
+      </div>
+      <p class="hint">사진까지 전부 한 파일에 담깁니다. 기록이 많으면 파일이 클 수 있어요.</p>
+    </div>
+    <div class="field">
+      <label>백업 파일에서 되살리기</label>
+      <div class="bkrow">
+        <button class="btn" type="button" id="bk-in">불러오기</button>
+        <input type="file" id="bk-file" accept="application/json,.json" hidden>
+      </div>
+      <p class="hint">불러오면 지금 이 폰에 있는 기록은 백업 파일 내용으로 바뀝니다.</p>
+    </div>
+  </div>
+  <div class="dlg-foot"><span class="grow"></span><button class="btn" value="cancel">닫기</button></div>
+</form></dialog>
+
+<div id="stage" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(() => {
+"use strict";
+
+const PET = { born:"2026-07-05", adopted:"2026-09-14" };
+const STICKER = "./zelda-sticker.png";
+const GOAL = 15;          // g — 아성체 기준
+const PER_SHEET = 4;      // A4 한 장 = 4주
+const DOW = ["월","화","수","목","금","토","일"];
+
+const $ = (s, r=document) => r.querySelector(s);
+const pad = n => String(n).padStart(2,"0");
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parseISO = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
+const todayISO = () => iso(new Date());
+
+function weekOf(dateISO){
+  const d = parseISO(dateISO), y = d.getFullYear(), m = d.getMonth()+1;
+  const firstDow = (new Date(y, m-1, 1).getDay() + 6) % 7;
+  const n = Math.floor((d.getDate() + firstDow - 1) / 7) + 1;
+  return { id:`${y}-${pad(m)}-w${n}` };
+}
+function weekRange(id){
+  const [ys, ms, ws] = id.split("-");
+  const y = +ys, m = +ms, n = +ws.slice(1);
+  const firstDow = (new Date(y, m-1, 1).getDay() + 6) % 7;
+  const start = new Date(y, m-1, 1 + (n-1)*7 - firstDow);
+  const end = new Date(start); end.setDate(start.getDate()+6);
+  return { start, end, y, m, n };
+}
+const weekLabel = id => { const {y,m,n} = weekRange(id); return `${String(y).slice(2)}년 ${m}월 ${n}주차`; };
+const weekNo = id => weekRange(id).n;
+const weekHead = id => { const {y,m} = weekRange(id); return `${String(y).slice(2)}년 ${m}월`; };
+const rangeLabel = id => { const {start,end} = weekRange(id); return `${start.getMonth()+1}.${start.getDate()} ~ ${end.getMonth()+1}.${end.getDate()}`; };
+
+function toast(msg, ms = 3200){
+  const el = document.createElement("div");
+  el.className = "toast"; el.textContent = msg; el.setAttribute("role","status");
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), ms);
+}
+
+/* ── 저장소: IndexedDB (이 브라우저 안) ────── */
+const DBN = "zelda-growth", DBV = 1;
+let idb = null;
+
+function openDB(){
+  return new Promise((res, rej) => {
+    const r = indexedDB.open(DBN, DBV);
+    r.onupgradeneeded = () => {
+      const d = r.result;
+      if (!d.objectStoreNames.contains("weeks"))  d.createObjectStore("weeks", { keyPath:"id" });
+      if (!d.objectStoreNames.contains("photos")) d.createObjectStore("photos");
+    };
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+const tx = (names, mode) => idb.transaction(names, mode);
+const wrap = req => new Promise((res, rej) => { req.onsuccess = () => res(req.result); req.onerror = () => rej(req.error); });
+
+const store = {
+  async loadAll(){
+    const all = await wrap(tx("weeks","readonly").objectStore("weeks").getAll());
+    return Object.fromEntries(all.map(w => [w.id, w]));
+  },
+  save(w){ return wrap(tx("weeks","readwrite").objectStore("weeks").put(w)); },
+  remove(id){ return wrap(tx("weeks","readwrite").objectStore("weeks").delete(id)); },
+  async putPhoto(blob){
+    const key = "p_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2,8);
+    await wrap(tx("photos","readwrite").objectStore("photos").put(blob, key));
+    return key;
+  },
+  getPhoto(key){ return wrap(tx("photos","readonly").objectStore("photos").get(key)); },
+  delPhoto(key){ return wrap(tx("photos","readwrite").objectStore("photos").delete(key)); },
+  allPhotoKeys(){ return wrap(tx("photos","readonly").objectStore("photos").getAllKeys()); },
+  async clearAll(){
+    await wrap(tx("weeks","readwrite").objectStore("weeks").clear());
+    await wrap(tx("photos","readwrite").objectStore("photos").clear());
+  }
+};
+
+/* 사진은 미리 오브젝트 URL로 풀어 두고 화면에서는 즉시 꺼내 쓴다 */
+const PHOTO_URLS = new Map();
+async function syncPhotoURLs(){
+  const need = new Set(Object.values(WEEKS).map(w => w.photo).filter(Boolean));
+  for (const [k, u] of PHOTO_URLS) if (!need.has(k)){ URL.revokeObjectURL(u); PHOTO_URLS.delete(k); }
+  for (const k of need){
+    if (PHOTO_URLS.has(k)) continue;
+    try { const b = await store.getPhoto(k); if (b) PHOTO_URLS.set(k, URL.createObjectURL(b)); } catch {}
+  }
+}
+const photoSrc = ref => ref ? (PHOTO_URLS.get(ref) || null) : null;
+
+/* 사진은 넣기 전에 줄여 둔다 — 폰 저장 공간과 PDF 용량을 위해 */
+function shrink(file, max = 1280, quality = .84){
+  return new Promise((res, rej) => {
+    const url = URL.createObjectURL(file), img = new Image();
+    img.onload = () => {
+      const s = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob(b => b ? res(b) : rej(new Error("encode")), "image/jpeg", quality);
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); rej(new Error("decode")); };
+    img.src = url;
+  });
+}
+
+function downloadFile(blob, name){
+  const url = URL.createObjectURL(blob), a = document.createElement("a");
+  a.href = url; a.download = name; a.rel = "noopener";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 8000);
+}
+const blobToDataURL = b => new Promise((res, rej) => {
+  const fr = new FileReader(); fr.onload = () => res(fr.result); fr.onerror = rej; fr.readAsDataURL(b);
+});
+async function dataURLToBlob(u){ return await (await fetch(u)).blob(); }
+
+/* ── 상태 ─────────────────────────────────── */
+let WEEKS = {};
+let calCursor = new Date();
+const blank = id => ({ id, date:"", weight:null, photo:null, feed:[0,0,0,0,0,0,0], clean:[0,0,0,0,0,0,0], memo:"" });
+const sorted = () => Object.values(WEEKS).sort((a,b) => weekRange(a.id).start - weekRange(b.id).start);
+const weighed = () => sorted().filter(w => typeof w.weight === "number");
+
+async function reload(){
+  WEEKS = await store.loadAll();
+  await syncPhotoURLs();
+  render();
+}
+
+/* ── 머리말 ───────────────────────────────── */
+function renderHead(){
+  const days = Math.floor((new Date() - parseISO(PET.born)) / 86400000);
+  const home = Math.floor((new Date() - parseISO(PET.adopted)) / 86400000);
+  $("#agechip").innerHTML = `<span>태어난 지 <b>${days}</b>일</span><span>우리 집 <b>${home}</b>일째</span>`;
+
+  const ws = weighed(), last = ws[ws.length-1], prev = ws[ws.length-2];
+  const sw = $("#s-weight");
+  if (last){
+    const d = prev ? +(last.weight - prev.weight).toFixed(1) : 0;
+    sw.innerHTML = `${last.weight}<small>g</small>` +
+      (d ? `<span class="delta ${d>0?"up":"dn"}">${d>0?"▲":"▼"}${Math.abs(d)}</span>` : "");
+    $("#s-weight-sub").textContent = `${weekLabel(last.id)}${last.date ? " · " + last.date.slice(5).replace("-",".") : ""}`;
+  } else { sw.textContent = "—"; $("#s-weight-sub").textContent = "기록 없음"; }
+
+  const n = Object.keys(WEEKS).length;
+  $("#s-weeks").innerHTML = `${n}<small>주</small>`;
+  $("#s-weeks-sub").textContent = n ? `A4 ${Math.ceil(n/PER_SHEET)}장 분량` : "첫 주를 기록해 보세요";
+
+  drawSpark(ws);
+
+  const peak = ws.length ? Math.max(...ws.map(w => w.weight)) : 0;
+  const goal = $("#goal");
+  if (peak > 0 && peak < GOAL){
+    goal.hidden = false;
+    $("#goal-txt").textContent = `${peak}g / ${GOAL}g · ${+(GOAL-peak).toFixed(1)}g 남음`;
+    $("#goal-bar").style.width = Math.min(100, peak/GOAL*100) + "%";
+  } else goal.hidden = true;
+
+  const ms = $("#milestone");
+  if (peak >= GOAL && sessionStorage.getItem("zelda.ms") !== "off"){
+    const first = ws.find(w => w.weight >= GOAL);
+    ms.hidden = false;
+    $("#milestone-sub").textContent = first ? `${weekLabel(first.id)}에 ${first.weight}g을 넘었어요.` : "";
+  } else ms.hidden = true;
+}
+
+function drawSpark(ws){
+  const svg = $("#spark"), sub = $("#s-spark-sub");
+  if (ws.length < 2){ svg.innerHTML = ""; sub.textContent = "2주 이상 기록하면 그려져요"; return; }
+  const vs = ws.map(w => w.weight);
+  const lo = Math.min(...vs), hi = Math.max(...vs), span = hi - lo || 1;
+  const x = i => 4 + i * (212 / (vs.length - 1));
+  const y = v => 38 - ((v - lo) / span) * 31;
+  const pts = vs.map((v,i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  svg.innerHTML =
+    `<polyline points="${pts}" fill="none" stroke="var(--moss)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>` +
+    vs.map((v,i) => `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="${i===vs.length-1?3.4:2}" fill="var(--moss)"/>`).join("");
+  sub.textContent = `${lo}g → ${hi}g · ${vs.length}회`;
+}
+
+/* ── 일기 ─────────────────────────────────── */
+function rowHTML(w){
+  const src = photoSrc(w.photo);
+  const ws = weighed(), idx = ws.findIndex(e => e.id === w.id), prev = idx > 0 ? ws[idx-1] : null;
+  const d = (prev && typeof w.weight === "number") ? +(w.weight - prev.weight).toFixed(1) : 0;
+  const days = arr => DOW.map((n,i) => `<span class="day${arr[i]?" on":""}">${n}</span>`).join("");
+  const cnt = arr => arr.filter(Boolean).length;
+
+  return `<button class="row" data-id="${w.id}">
+    <div class="cell">
+      <div class="wk"><span class="no">${weekNo(w.id)}주</span>${weekHead(w.id)}<span class="rng">${rangeLabel(w.id)}</span></div>
+    </div>
+    <div class="cell">
+      <span class="clabel">사진 · 몸무게</span>
+      ${src ? `<img class="shot" src="${src}" alt="${weekLabel(w.id)}의 젤다" loading="lazy">`
+            : `<div class="shot empty"><svg viewBox="0 0 64 64"><use href="#camera"/></svg>사진 없음</div>`}
+      <div class="meta2">
+        <span class="d">${w.date ? w.date.replace(/-/g,".").slice(2) : "날짜 미정"}</span>
+        <span class="g${typeof w.weight === "number" ? "" : " none"}">${
+          typeof w.weight === "number"
+            ? `${w.weight}<small>g</small>${d ? `<span class="delta ${d>0?"up":"dn"}">${d>0?"▲":"▼"}${Math.abs(d)}</span>` : ""}`
+            : "몸무게 —"}</span>
+      </div>
+    </div>
+    <div class="cell">
+      <span class="clabel">피딩 · 청소</span>
+      <div class="track feed"><div class="tk"><i></i>피딩<em>${cnt(w.feed)}/7</em></div><div class="days">${days(w.feed)}</div></div>
+      <div class="track clean"><div class="tk"><i></i>청소<em>${cnt(w.clean)}/7</em></div><div class="days">${days(w.clean)}</div></div>
+    </div>
+    <div class="cell">
+      <span class="clabel">메모</span>
+      <div class="memo${w.memo ? "" : " empty"}">${w.memo ? esc(w.memo) : "메모 없음"}</div>
+      ${typeof w.weight === "number" && w.weight >= GOAL ? `<div class="tagrow"><span class="tag">아성체 ${GOAL}g 달성</span></div>` : ""}
+    </div>
+  </button>`;
+}
+
+function renderDiary(){
+  const list = sorted(), host = $("#diary");
+  if (!list.length){
+    host.innerHTML = `<div class="empty-state">
+      <img src="${STICKER}" alt="">
+      <p>아직 기록이 없어요.<br>젤다의 첫 주를 남겨 볼까요?</p>
+      <button class="btn primary" data-new>＋ 첫 기록 만들기</button></div>`;
+    return;
+  }
+  const head = `<div class="thead"><div>주차</div><div>사진 · 몸무게</div><div>피딩 · 청소</div><div>메모</div></div>`;
+  let html = "";
+  for (let i = 0; i < list.length; i += PER_SHEET){
+    const chunk = list.slice(i, i + PER_SHEET), full = chunk.length === PER_SHEET;
+    html += `<div class="sheetlabel"><svg viewBox="0 0 60 60"><use href="#leaf"/></svg>A4 ${i/PER_SHEET + 1}장
+        <span class="pill${full ? " full" : ""}">${full ? "한 장 다 찼어요 · PDF 가능" : `${chunk.length}/${PER_SHEET}주`}</span>
+      </div>${head}<div class="sheetgroup">${chunk.map(rowHTML).join("")}</div>`;
+  }
+  host.innerHTML = html;
+}
+
+/* ── 달력 ─────────────────────────────────── */
+function renderCal(){
+  const y = calCursor.getFullYear(), m = calCursor.getMonth();
+  $("#cal-title").textContent = `${y}년 ${m+1}월`;
+  const firstDow = (new Date(y, m, 1).getDay() + 6) % 7;
+  const total = new Date(y, m+1, 0).getDate(), now = todayISO();
+  let html = "";
+  for (let i = 0; i < firstDow; i++) html += `<div class="cday pad"></div>`;
+  for (let d = 1; d <= total; d++){
+    const dISO = `${y}-${pad(m+1)}-${pad(d)}`;
+    const wk = WEEKS[weekOf(dISO).id];
+    const dow = (new Date(y, m, d).getDay() + 6) % 7;
+    const rec = !!wk && wk.date === dISO && typeof wk.weight === "number";
+    const marks = wk ? `${wk.feed[dow] ? '<i class="f"></i>' : ""}${wk.clean[dow] ? '<i class="c"></i>' : ""}` : "";
+    const cls = ["cday", rec ? "rec" : "", wk ? "has" : "", dISO === now ? "today" : ""].filter(Boolean).join(" ");
+    html += `<${wk ? "button" : "div"} class="${cls}"${wk ? ` data-id="${wk.id}" type="button"` : ""}>
+      <span class="n">${d}</span><span class="marks">${marks}</span>
+      <span class="w">${rec ? wk.weight + "g" : ""}</span>
+    </${wk ? "button" : "div"}>`;
+  }
+  $("#cal-grid").innerHTML = html;
+}
+
+function render(){ renderHead(); renderDiary(); renderCal(); }
+
+/* ── 기록 창 ──────────────────────────────── */
+const dlg = $("#dlg"), dlgBody = $("#dlg-body"), dlgFoot = $("#dlg-foot"), dlgTitle = $("#dlg-title");
+let draft = null, editing = false, draftPhotoWasNew = null;
+
+function openWeek(id, mode){
+  const exists = !!WEEKS[id];
+  draft = structuredClone(WEEKS[id] || blank(id));
+  draftPhotoWasNew = null;
+  if (!draft.date){
+    const {start, end} = weekRange(id), t = new Date();
+    draft.date = (t >= start && t <= end) ? todayISO() : iso(start);
+  }
+  editing = mode === "edit" || !exists;
+  paint();
+  if (!dlg.open) dlg.showModal();
+}
+function paint(){ dlgTitle.textContent = weekLabel(draft.id); editing ? paintEdit() : paintView(); }
+
+function paintView(){
+  const w = draft, src = photoSrc(w.photo);
+  const days = arr => DOW.map((n,i) => `<span class="day${arr[i]?" on":""}">${n}</span>`).join("");
+  dlgBody.innerHTML = `
+    ${src ? `<div class="zoom"><img src="${src}" alt="${weekLabel(w.id)}의 젤다"></div>` : ""}
+    <div class="viewgrid">
+      <div class="vrow"><span class="k">기간</span><span class="v">${rangeLabel(w.id)}</span></div>
+      <div class="vrow"><span class="k">측정일</span><span class="v">${w.date ? w.date.replace(/-/g,". ") + "." : "—"}</span></div>
+      <div class="vrow"><span class="k">몸무게</span><span class="v">${typeof w.weight === "number" ? `<span class="big">${w.weight}</span> g` : "—"}</span></div>
+      <div class="vrow"><span class="k">피딩</span><span class="v"><div class="track feed"><div class="days">${days(w.feed)}</div></div></span></div>
+      <div class="vrow"><span class="k">청소</span><span class="v"><div class="track clean"><div class="days">${days(w.clean)}</div></div></span></div>
+      <div class="vrow"><span class="k">메모</span><span class="v">${w.memo ? esc(w.memo) : "—"}</span></div>
+    </div>`;
+  dlgFoot.innerHTML = `<button class="btn" value="cancel">닫기</button><span class="grow"></span>
+    <button class="btn primary" type="button" id="to-edit">수정</button>`;
+  $("#to-edit").onclick = () => { editing = true; paint(); };
+}
+
+function paintEdit(){
+  const w = draft, src = photoSrc(w.photo);
+  const boxes = (arr, kind) => DOW.map((n,i) =>
+    `<label class="wd ${kind}"><input type="checkbox" data-k="${kind}" data-i="${i}"${arr[i]?" checked":""}><span>${n}</span></label>`).join("");
+  dlgBody.innerHTML = `
+    <div class="field">
+      <label for="f-photo">이번 주 사진 (1장)</label>
+      <div class="dropzone" id="dz">
+        ${src ? `<img src="${src}" alt="미리보기"><button type="button" class="rm" id="f-rm">삭제</button>`
+              : `<div class="ph"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#camera"/></svg>
+                   <b>사진 올리기</b>카메라로 찍거나 앨범에서 고르기</div>`}
+        <input type="file" id="f-photo" accept="image/*" capture="environment">
+      </div>
+    </div>
+    <div class="two">
+      <div class="field"><label for="f-date">잰 날짜</label>
+        <input class="inp" type="date" id="f-date" value="${w.date}"></div>
+      <div class="field"><label for="f-weight">몸무게</label>
+        <div class="unit"><input class="inp" type="number" id="f-weight" inputmode="decimal" step="0.1" min="0" max="500"
+          placeholder="0.0" value="${typeof w.weight === "number" ? w.weight : ""}"><span class="u">g</span></div></div>
+    </div>
+    <div class="field"><label>피딩한 요일</label><div class="weekdays">${boxes(w.feed,"f")}</div></div>
+    <div class="field"><label>청소한 요일</label><div class="weekdays">${boxes(w.clean,"c")}</div></div>
+    <div class="field"><label for="f-memo">메모</label>
+      <textarea class="inp" id="f-memo" placeholder="탈피 직전, 잘 먹음, 활동량 …">${esc(w.memo || "")}</textarea></div>
+    <p class="hint">잰 날짜를 바꾸면 그 날짜가 속한 주차로 옮겨져요.</p>`;
+
+  dlgFoot.innerHTML = `
+    ${WEEKS[w.id] ? `<button class="btn danger" type="button" id="f-del">삭제</button>` : ""}
+    <span class="grow"></span>
+    <button class="btn" value="cancel">취소</button>
+    <button class="btn primary" type="button" id="f-save">저장</button>`;
+
+  const dz = $("#dz");
+  $("#f-photo").onchange = async e => {
+    const file = e.target.files?.[0]; if (!file) return;
+    dz.classList.add("busy");
+    try {
+      const key = await store.putPhoto(await shrink(file));
+      const b = await store.getPhoto(key);
+      PHOTO_URLS.set(key, URL.createObjectURL(b));
+      draftPhotoWasNew = key;
+      draft.photo = key;
+      paintEdit();
+    } catch (err){
+      dz.classList.remove("busy");
+      toast(err && err.name === "QuotaExceededError"
+        ? "폰 저장 공간이 부족해요. 오래된 기록을 정리해 주세요."
+        : "사진을 넣지 못했어요. 다시 시도해 주세요.");
+    }
+  };
+  if ($("#f-rm")) $("#f-rm").onclick = () => { draft.photo = null; paintEdit(); };
+  dlgBody.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.onchange = () => { (cb.dataset.k === "f" ? draft.feed : draft.clean)[+cb.dataset.i] = cb.checked ? 1 : 0; };
+  });
+  $("#f-save").onclick = saveDraft;
+  if ($("#f-del")) $("#f-del").onclick = async () => {
+    if (!confirm(`${weekLabel(draft.id)} 기록을 지울까요?`)) return;
+    const old = WEEKS[draft.id];
+    await store.remove(draft.id);
+    if (old?.photo) await store.delPhoto(old.photo).catch(() => {});
+    dlg.close(); await reload(); toast("기록을 지웠어요.");
+  };
+}
+
+async function saveDraft(){
+  const date = $("#f-date").value || draft.date;
+  const raw = $("#f-weight").value.trim();
+  const weight = raw === "" ? null : Math.round(parseFloat(raw) * 10) / 10;
+  if (raw !== "" && !(weight >= 0)){ toast("몸무게는 숫자로 적어 주세요."); return; }
+
+  const target = weekOf(date).id, moved = target !== draft.id;
+  if (moved && WEEKS[target] && !confirm(`${weekLabel(target)}에 이미 기록이 있어요. 덮어쓸까요?`)) return;
+
+  const before = weighed().length ? Math.max(...weighed().map(w => w.weight)) : 0;
+  const prevPhoto = WEEKS[draft.id]?.photo || null;
+  const body = { ...draft, id:target, date, weight, memo: $("#f-memo").value.trim(), updatedAt: new Date().toISOString() };
+
+  try {
+    await store.save(body);
+    if (moved && WEEKS[draft.id]) await store.remove(draft.id);
+    // 바뀌면서 버려진 사진은 지워 준다
+    const overwritten = moved ? WEEKS[target]?.photo : null;
+    for (const gone of [prevPhoto, overwritten])
+      if (gone && gone !== body.photo) await store.delPhoto(gone).catch(() => {});
+  } catch (err){
+    toast(err && err.name === "QuotaExceededError"
+      ? "폰 저장 공간이 부족해요. 오래된 기록을 정리해 주세요."
+      : "저장하지 못했어요. 다시 시도해 주세요.");
+    return;
+  }
+  dlg.close();
+  await reload();
+  toast(moved ? `${weekLabel(target)}로 저장했어요.` : "저장했어요.");
+  if (weight !== null && weight >= GOAL && before < GOAL){
+    sessionStorage.removeItem("zelda.ms");
+    renderHead();
+    setTimeout(() => $("#milestone")?.scrollIntoView({behavior:"smooth", block:"center"}), 300);
+  }
+}
+
+/* ── 백업 ─────────────────────────────────── */
+const bk = $("#bk");
+async function openBackup(){
+  const last = localStorage.getItem("zelda.lastBackup");
+  let usage = "";
+  try {
+    const e = await navigator.storage?.estimate?.();
+    if (e?.usage) usage = ` · 지금 쓰는 용량 약 ${(e.usage/1048576).toFixed(1)}MB`;
+  } catch {}
+  $("#bk-stat").innerHTML =
+    `<b>기록 ${Object.keys(WEEKS).length}주 · 사진 ${[...new Set(Object.values(WEEKS).map(w=>w.photo).filter(Boolean))].length}장</b>` +
+    `마지막 백업: ${last ? last.slice(0,10).replace(/-/g,". ") + "." : "아직 없음"}${usage}`;
+  bk.showModal();
+}
+
+async function exportBackup(){
+  const btn = $("#bk-out"), label = btn.textContent;
+  btn.disabled = true; btn.textContent = "만드는 중…";
+  try {
+    const weeks = await store.loadAll(), photos = {};
+    for (const w of Object.values(weeks)){
+      if (!w.photo || photos[w.photo]) continue;
+      const b = await store.getPhoto(w.photo);
+      if (b) photos[w.photo] = await blobToDataURL(b);
+    }
+    const data = { app:"zelda-growth-diary", version:1, exportedAt:new Date().toISOString(), weeks, photos };
+    downloadFile(new Blob([JSON.stringify(data)], {type:"application/json"}), `젤다-성장일기-백업-${todayISO()}.json`);
+    localStorage.setItem("zelda.lastBackup", new Date().toISOString());
+    toast("백업 파일을 내려받았어요. 드라이브 같은 곳에 옮겨 두세요.", 4500);
+  } catch {
+    toast("백업 파일을 만들지 못했어요.");
+  } finally { btn.disabled = false; btn.textContent = label; }
+}
+
+async function importBackup(file){
+  let data;
+  try { data = JSON.parse(await file.text()); }
+  catch { toast("이 파일은 읽을 수 없어요. 내보낸 .json 파일인지 확인해 주세요."); return; }
+  if (data?.app !== "zelda-growth-diary" || !data.weeks){
+    toast("젤다 성장일기 백업 파일이 아니에요."); return;
+  }
+  const n = Object.keys(data.weeks).length;
+  if (!confirm(`백업에 담긴 ${n}주를 되살립니다.\n지금 이 폰에 있는 기록은 지워집니다. 계속할까요?`)) return;
+  try {
+    await store.clearAll();
+    for (const [key, url] of Object.entries(data.photos || {}))
+      await wrap(tx("photos","readwrite").objectStore("photos").put(await dataURLToBlob(url), key));
+    for (const w of Object.values(data.weeks)) await store.save(w);
+    for (const u of PHOTO_URLS.values()) URL.revokeObjectURL(u);
+    PHOTO_URLS.clear();
+    await reload();
+    bk.close();
+    toast(`${n}주를 되살렸어요.`);
+  } catch {
+    toast("되살리는 중 문제가 생겼어요. 저장 공간을 확인해 주세요.");
+  }
+}
+
+/* ── PDF ──────────────────────────────────── */
+function sheetHTML(chunk, page, pages){
+  const days = arr => DOW.map((n,i) => `<span class="day${arr[i]?" on":""}">${n}</span>`).join("");
+  const rows = chunk.map(w => {
+    const src = photoSrc(w.photo);
+    return `<div class="a4-row">
+      <div class="a4-c c1"><div class="wk">${weekLabel(w.id)}<span class="rng">${rangeLabel(w.id)}</span></div></div>
+      <div class="a4-c c2">
+        ${src ? `<img class="shot" src="${src}" alt="">` : `<div class="noshot"></div>`}
+        <div class="meta2"><span class="d">${w.date ? w.date.replace(/-/g,".").slice(2) : "—"}</span>
+          <span class="g">${typeof w.weight === "number" ? `${w.weight}<small>g</small>` : "—"}</span></div>
+      </div>
+      <div class="a4-c c3">
+        <div class="track feed"><div class="tk">피딩</div><div class="days">${days(w.feed)}</div></div>
+        <div class="track clean"><div class="tk">청소</div><div class="days">${days(w.clean)}</div></div>
+      </div>
+      <div class="a4-c c4"><div class="memo">${w.memo ? esc(w.memo) : ""}</div></div>
+    </div>`;
+  }).join("");
+  return `<div class="a4">
+    <div class="a4-frame"></div>
+    <div class="a4-head">
+      <div><p class="eb">천천히, 그러나 매일</p><h1>젤다의 성장일기</h1></div>
+      <img class="gk" src="${STICKER}" alt="">
+      <div class="m">릴리화이트 크레스티드 게코<br>출생 26. 7. 5. · 데려온 날 26. 9. 14.</div>
+    </div>
+    <div class="a4-lg">
+      <span><i style="background:#6E9450"></i>몸무게 기록</span>
+      <span><i style="background:#DE8A3B"></i>피딩</span>
+      <span><i style="background:#5B8FC7"></i>청소</span>
+    </div>
+    <div class="a4-th"><div class="c1">주차</div><div class="c2">사진 · 몸무게</div><div class="c3">피딩 · 청소</div><div class="c4">메모</div></div>
+    <div class="a4-rows">${rows}</div>
+    <div class="a4-foot">
+      <span>${chunk.length ? `${weekLabel(chunk[0].id)} ~ ${weekLabel(chunk[chunk.length-1].id)}` : ""}</span>
+      <span>온도 22~26℃ · 습도 60~80% · 몸무게는 주 1회, 먹기 전에</span>
+      <span>${page} / ${pages}</span>
+    </div>
+  </div>`;
+}
+
+async function exportPDF(){
+  const list = sorted();
+  if (!list.length){ toast("내보낼 기록이 없어요."); return; }
+  if (!window.html2canvas || !window.jspdf){
+    toast("PDF 기능을 불러오지 못했어요. 인터넷에 연결한 뒤 새로고침해 주세요.", 4500); return;
+  }
+  const btn = $("#btn-pdf"), label = btn.textContent;
+  btn.disabled = true; btn.textContent = "만드는 중…";
+  const stage = $("#stage");
+  try {
+    await (document.fonts?.ready ?? Promise.resolve());
+    const pages = Math.ceil(list.length / PER_SHEET);
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({ unit:"mm", format:"a4", orientation:"portrait" });
+    for (let p = 0; p < pages; p++){
+      stage.innerHTML = sheetHTML(list.slice(p*PER_SHEET, (p+1)*PER_SHEET), p+1, pages);
+      const imgs = [...stage.querySelectorAll("img")];
+      await Promise.all(imgs.map(im => im.complete ? null : new Promise(r => { im.onload = im.onerror = r; })));
+      const canvas = await html2canvas(stage.firstElementChild, { scale:2, backgroundColor:"#FCF6E4", useCORS:true, logging:false });
+      if (p) pdf.addPage();
+      pdf.addImage(canvas.toDataURL("image/jpeg", .92), "JPEG", 0, 0, 210, 297, undefined, "FAST");
+    }
+    downloadFile(pdf.output("blob"), `젤다의-성장일기-${todayISO()}.pdf`);
+    toast(`A4 ${pages}장으로 내려받았어요.`);
+  } catch {
+    toast("PDF를 만들지 못했어요. 다시 시도해 주세요.");
+  } finally {
+    stage.innerHTML = ""; btn.disabled = false; btn.textContent = label;
+  }
+}
+
+/* ── 연결 ─────────────────────────────────── */
+function showTab(which){
+  const diary = which === "diary";
+  $("#tab-diary").setAttribute("aria-selected", diary);
+  $("#tab-cal").setAttribute("aria-selected", !diary);
+  $("#view-diary").hidden = !diary;
+  $("#view-cal").hidden = diary;
+}
+$("#tab-diary").onclick = () => showTab("diary");
+$("#tab-cal").onclick   = () => showTab("cal");
+$("#cal-prev").onclick  = () => { calCursor.setMonth(calCursor.getMonth()-1); renderCal(); };
+$("#cal-next").onclick  = () => { calCursor.setMonth(calCursor.getMonth()+1); renderCal(); };
+$("#btn-new").onclick   = () => openWeek(weekOf(todayISO()).id, "edit");
+$("#btn-pdf").onclick   = exportPDF;
+$("#btn-backup").onclick = openBackup;
+$("#bk-out").onclick    = exportBackup;
+$("#bk-in").onclick     = () => $("#bk-file").click();
+$("#bk-file").onchange  = e => { const f = e.target.files?.[0]; e.target.value = ""; if (f) importBackup(f); };
+$("#milestone-x").onclick = () => { sessionStorage.setItem("zelda.ms","off"); $("#milestone").hidden = true; };
+
+$("#diary").addEventListener("click", e => {
+  if (e.target.closest("[data-new]")) return openWeek(weekOf(todayISO()).id, "edit");
+  const row = e.target.closest(".row"); if (row) openWeek(row.dataset.id, "view");
+});
+$("#cal-grid").addEventListener("click", e => {
+  const c = e.target.closest(".cday[data-id]"); if (c) openWeek(c.dataset.id, "view");
+});
+dlg.addEventListener("close", () => { draft = null; editing = false; });
+
+/* 기록이 사라지지 않도록 브라우저에 "이 저장소는 지우지 말아 달라"고 요청해 둔다 */
+navigator.storage?.persist?.().catch(() => {});
+
+(async () => {
+  try { idb = await openDB(); }
+  catch {
+    render();
+    toast("이 브라우저에서는 기록을 저장할 수 없어요. 시크릿 모드가 아닌지 확인해 주세요.", 6000);
+    return;
+  }
+  await reload();
+  // 어느 기록도 가리키지 않는 사진은 정리한다
+  try {
+    const used = new Set(Object.values(WEEKS).map(w => w.photo).filter(Boolean));
+    for (const k of await store.allPhotoKeys()) if (!used.has(k)) await store.delPhoto(k);
+  } catch {}
+})();
+
+if ("serviceWorker" in navigator)
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+})();
+</script>
+</body>
+</html>
