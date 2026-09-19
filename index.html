@@ -267,13 +267,15 @@ textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
 .unit .u{position:absolute; right:13px; top:50%; transform:translateY(-50%); color:var(--faint); font-size:13px; pointer-events:none}
 .unit .inp{padding-right:32px; font-family:'Jua',sans-serif; font-size:17px}
 
-.dropzone{position:relative; border:2.5px dashed var(--line); border-radius:16px; overflow:hidden; background:var(--sunk); aspect-ratio:4/3; display:grid; place-items:center}
+.dropzone{position:relative; border:2.5px dashed var(--line); border-radius:16px; overflow:hidden; background:var(--sunk); aspect-ratio:4/3; display:grid; place-items:center; cursor:pointer}
 .dropzone img{width:100%; height:100%; object-fit:cover; display:block}
 .dropzone .ph{text-align:center; color:var(--muted); font-size:12.5px; padding:16px}
 .dropzone .ph svg{width:62px; color:var(--moss); opacity:.8; display:block; margin:0 auto 4px}
 .dropzone .ph b{display:block; font-family:'Jua',sans-serif; font-size:15px; color:var(--ink); margin-bottom:2px}
-.dropzone input[type=file]{position:absolute; inset:0; opacity:0; cursor:pointer}
 .dropzone .rm{position:absolute; top:8px; right:8px; z-index:2; border-radius:9px; padding:4px 10px; font-size:12px; background:rgba(45,34,20,.7); color:#fff; border:0}
+.picks{display:flex; gap:9px}
+.picks .btn{flex:1 1 0; min-width:0; display:flex; align-items:center; justify-content:center; gap:6px}
+.picks .btn svg{width:17px; height:17px; flex:none}
 .dropzone.busy::after{content:"넣는 중…"; position:absolute; inset:0; display:grid; place-items:center; background:rgba(45,34,20,.5); color:#fff; font-size:13px}
 
 .weekdays{display:grid; grid-template-columns:repeat(7,1fr); gap:5px}
@@ -371,6 +373,13 @@ textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
     <ellipse cx="31" cy="15" rx="5" ry="7.5"/>
     <ellipse cx="42" cy="20" rx="5" ry="7.5" transform="rotate(19 42 20)"/>
     <ellipse cx="51" cy="31" rx="5" ry="7.5" transform="rotate(38 51 31)"/>
+  </g>
+</symbol>
+<symbol id="album" viewBox="0 0 64 64">
+  <g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="6" y="12" width="52" height="40" rx="5"/>
+    <path d="M6 42l13-13 11 11 8-8 16 16"/>
+    <circle cx="23" cy="24" r="4.5"/>
   </g>
 </symbol>
 <symbol id="camera" viewBox="0 0 64 64">
@@ -845,9 +854,16 @@ function paintEdit(){
       <div class="dropzone" id="dz">
         ${src ? `<img src="${src}" alt="미리보기"><button type="button" class="rm" id="f-rm">삭제</button>`
               : `<div class="ph"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#camera"/></svg>
-                   <b>사진 올리기</b>카메라로 찍거나 앨범에서 고르기</div>`}
-        <input type="file" id="f-photo" accept="image/*" capture="environment">
+                   <b>사진 넣기</b>바로 찍거나, 앨범에서 고르세요</div>`}
       </div>
+      <div class="picks">
+        <button class="btn" type="button" id="f-cam">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#camera"/></svg>사진 찍기</button>
+        <button class="btn" type="button" id="f-gal">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#album"/></svg>앨범에서 고르기</button>
+      </div>
+      <input type="file" id="f-cam-in" accept="image/*" capture="environment" hidden>
+      <input type="file" id="f-gal-in" accept="image/*" hidden>
     </div>
     <div class="two">
       <div class="field"><label for="f-date">잰 날짜</label>
@@ -869,8 +885,10 @@ function paintEdit(){
     <button class="btn primary" type="button" id="f-save">저장</button>`;
 
   const dz = $("#dz");
-  $("#f-photo").onchange = async e => {
-    const file = e.target.files?.[0]; if (!file) return;
+  const onPick = async e => {
+    const file = e.target.files?.[0];
+    e.target.value = "";                   // 같은 사진을 다시 골라도 반응하도록
+    if (!file) return;
     dz.classList.add("busy");
     try {
       const key = await store.putPhoto(await shrink(file));
@@ -886,7 +904,12 @@ function paintEdit(){
         : "사진을 넣지 못했어요. 다시 시도해 주세요.");
     }
   };
-  if ($("#f-rm")) $("#f-rm").onclick = () => { draft.photo = null; paintEdit(); };
+  $("#f-cam-in").onchange = onPick;
+  $("#f-gal-in").onchange = onPick;
+  $("#f-cam").onclick = () => $("#f-cam-in").click();
+  $("#f-gal").onclick = () => $("#f-gal-in").click();
+  dz.onclick = e => { if (!e.target.closest(".rm")) $("#f-gal-in").click(); };
+  if ($("#f-rm")) $("#f-rm").onclick = e => { e.stopPropagation(); draft.photo = null; paintEdit(); };
   dlgBody.querySelectorAll('input[type=checkbox]').forEach(cb => {
     cb.onchange = () => { (cb.dataset.k === "f" ? draft.feed : draft.clean)[+cb.dataset.i] = cb.checked ? 1 : 0; };
   });

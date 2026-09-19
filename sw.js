@@ -1,6 +1,6 @@
 /* 젤다의 성장일기 — 오프라인에서도 열리도록 앱 파일을 캐시해 둔다.
    기록과 사진은 여기 들어오지 않는다. 그건 IndexedDB에 있다. */
-const CACHE = "zelda-v1";
+const CACHE = "zelda-v2";
 
 const SHELL = [
   "./",
