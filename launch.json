@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zelda",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:\\Users\\harry\\AppData\\Local\\Temp\\claude\\C--Users-harry-OneDrive---------\\3eef9ca1-8691-4b04-abf4-8fbbe217e289\\scratchpad\\serve.js",
+        "C:\\Users\\harry\\OneDrive\\바탕 화면\\젤다",
+        "8765"
+      ],
+      "port": 8765
+    }
+  ]
+}
