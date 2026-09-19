@@ -177,7 +177,7 @@ main{position:relative; z-index:1}
 .wk .rng{display:block; font-family:'Gowun Dodum',sans-serif; font-size:12px; color:var(--faint); margin-top:3px; font-variant-numeric:tabular-nums}
 .wk .no{display:inline-flex; align-items:center; justify-content:center; min-width:24px; height:24px; padding:0 6px; border-radius:99px; background:var(--moss-soft); color:var(--moss-ink); font-size:12.5px; margin-right:6px; vertical-align:2px}
 
-.shot{width:100%; aspect-ratio:4/3; border-radius:12px; background:var(--sunk); object-fit:cover; display:block; border:2px solid var(--line-soft)}
+.shot{width:100%; aspect-ratio:4/3; border-radius:12px; background:var(--sunk); object-fit:contain; display:block; border:2px solid var(--line-soft)}
 .shot.empty{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--faint); font-size:12px}
 .shot.empty svg{width:34px; opacity:.65}
 .meta2{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-top:8px; font-variant-numeric:tabular-nums}
@@ -268,7 +268,8 @@ textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
 .unit .inp{padding-right:32px; font-family:'Jua',sans-serif; font-size:17px}
 
 .dropzone{position:relative; border:2.5px dashed var(--line); border-radius:16px; overflow:hidden; background:var(--sunk); aspect-ratio:4/3; display:grid; place-items:center; cursor:pointer}
-.dropzone img{width:100%; height:100%; object-fit:cover; display:block}
+/* absolute로 깔아야 height:100%가 aspect-ratio 칸에 제대로 걸린다 */
+.dropzone img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block}
 .dropzone .ph{text-align:center; color:var(--muted); font-size:12.5px; padding:16px}
 .dropzone .ph svg{width:62px; color:var(--moss); opacity:.8; display:block; margin:0 auto 4px}
 .dropzone .ph b{display:block; font-family:'Jua',sans-serif; font-size:15px; color:var(--ink); margin-bottom:2px}
@@ -314,7 +315,7 @@ textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
   .clabel{display:block; font-family:'Jua',sans-serif; font-size:13px; color:var(--moss-ink); margin-bottom:7px}
   .wk{display:flex; align-items:baseline; gap:8px}
   .wk .rng{margin-top:0}
-  .shot{aspect-ratio:16/10}
+  .shot{aspect-ratio:4/3}
   .cday .w{display:none}
   .mascot{max-width:none; width:100%}
   .cal .peek{width:84px; right:14px; top:-40px}
@@ -343,7 +344,7 @@ textarea.inp{resize:vertical; min-height:84px; font-variant-numeric:normal}
 .c1{width:102px; flex:none} .c2{width:212px; flex:none} .c3{width:210px; flex:none} .c4{flex:1}
 .a4 .wk{font-family:'Jua',sans-serif; font-size:14px}
 .a4 .wk .rng{font-family:'Gowun Dodum',sans-serif; font-size:9.5px; color:#AC9D83; display:block; margin-top:3px}
-.a4 .shot{width:100%; height:126px; object-fit:cover; border-radius:9px; border:2px solid #EFE4C8; background:#F2E8CF; display:block}
+.a4 .shot{width:100%; height:126px; object-fit:contain; border-radius:9px; border:2px solid #EFE4C8; background:#F2E8CF; display:block}
 .a4 .noshot{width:100%; height:126px; border-radius:9px; border:2px dashed #E3D5B4; background:#FCF6E4}
 .a4 .meta2{display:flex; justify-content:space-between; align-items:baseline; margin-top:7px}
 .a4 .meta2 .d{font-size:10.5px; color:#8B7A60}
